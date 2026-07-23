@@ -1,0 +1,47 @@
+{
+  "samples": 161492,
+  "n_features": 55,
+  "train": 116677,
+  "val": 20591,
+  "test": 24224,
+  "rmse": 1398.7514968714063,
+  "mae": 749.9255981445312,
+  "r2": 0.7912808656692505,
+  "top_features": [
+    {
+      "Feature": "Bathroom",
+      "Importance": 0.24631813168525696
+    },
+    {
+      "Feature": "Super Area",
+      "Importance": 0.24289971590042114
+    },
+    {
+      "Feature": "Carpet Area",
+      "Importance": 0.23094196617603302
+    },
+    {
+      "Feature": "location_newdelhi",
+      "Importance": 0.22904741764068604
+    },
+    {
+      "Feature": "location_bangalore",
+      "Importance": 0.2260555922985077
+    },
+    {
+      "Feature": "location_gurgaon",
+      "Importance": 0.201964870095253
+    },
+    {
+      "Feature": "Balcony",
+      "Importance": 0.17537862062454224
+    },
+    {
+      "Feature": "location_kolkata",
+      "Importance": 0.17315270006656647
+    }
+  ],
+  "elapsed_sec": 458.3,
+  "device": "cuda",
+  "note": "未使用由 Price 构造的 price_per_sqft，避免标签泄漏"
+}

@@ -1,0 +1,11 @@
+# datasets & caches
+**/data/
+**/dataset/
+**/*.csv
+!**/result/feature_importance_noleak.csv
+**/__pycache__/
+**/.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+.env
+_prepare_repo.py

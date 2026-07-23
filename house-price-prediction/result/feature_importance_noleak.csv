@@ -1,0 +1,56 @@
+Feature,Importance
+Bathroom,0.24631813
+Super Area,0.24289972
+Carpet Area,0.23094197
+location_newdelhi,0.22904742
+location_bangalore,0.22605559
+location_gurgaon,0.20196487
+Balcony,0.17537862
+location_kolkata,0.1731527
+Society_Unknown,0.16417874
+location_ahmedabad,0.15051892
+location_chennai,0.13744974
+location_hyderabad,0.13223745
+Ownership_Unknown,0.12075022
+facing_Unknown,0.11841714
+overlooking_Garden_Park_Main_Road,0.11745835
+overlooking_Unknown,0.1139208
+Ownership_Freehold,0.1122907
+facing_East,0.11051666
+facing_North__East,0.1092044
+overlooking_Garden_Park,0.10661239
+overlooking_Garden_Park_Pool_Main_Road,0.10348202
+overlooking_Main_Road,0.10222723
+Ownership_Leasehold,0.101294756
+location_jaipur,0.098426655
+Furnishing_Unfurnished,0.09810877
+Furnishing_SemiFurnished,0.09664443
+facing_North,0.09627297
+Furnishing_Furnished,0.095495686
+Transaction_New_Property,0.091253564
+Transaction_Resale,0.08835218
+Ownership_Cooperative_Society,0.07672841
+Society_Hamdam_Apartment,0.07635662
+facing_West,0.07538341
+facing_North__West,0.07383408
+Society_Nebula_Tower,0.07034947
+overlooking_Pool_Garden_Park_Main_Road,0.06887908
+facing_South__East,0.06625849
+facing_South,0.066013746
+overlooking_Main_Road_Garden_Park_Pool,0.05861193
+Furnishing_Unknown,0.057710078
+Society_Defence_Officers_Apartment,0.05754506
+overlooking_Garden_Park_Pool,0.056880347
+Society_DLF_Skycourt,0.05597547
+Society_Malibu_Town,0.05400397
+Society_Sarve_Satyam_Apartment,0.05351349
+Society_Harmony_Apartment,0.053443752
+Ownership_Power_Of_Attorney,0.052468535
+bathroom_per_sqft,0.045626987
+Status_Unknown,0.038400665
+Status_Ready_to_Move,0.03699652
+Transaction_Unknown,0.013859074
+Transaction_Other,0.0131425895
+Plot Area,0.009963828
+Transaction_Rent_Lease,0.009670911
+Car Parking,0.008636521
