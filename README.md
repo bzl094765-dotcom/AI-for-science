@@ -1,6 +1,7 @@
 # AI-for-science
 
-东北师范大学 · 刘炳卓（2025 级计算机类）本科科研申请相关项目代码与实验结果。
+## My
+相关项目代码与实验结果。
 
 仓库地址：https://github.com/bzl094765-dotcom/AI-for-science
 
@@ -48,7 +49,8 @@ python train_mnist.py --non-interactive
 
 ## 环境依赖
 
-- Python 3.9+
+- Python 3.10.19+
+- cuda130
 - PyTorch、torchvision
 - NumPy、Pandas、scikit-learn、Matplotlib
 
