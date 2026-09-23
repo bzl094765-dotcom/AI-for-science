@@ -1,0 +1,86 @@
+MAT /tmp/author_code/CISF/dataset/emotions.mat
+views [(65, 593), (9, 593)] Y (6, 593) Y unique [0.0, 1.0]
+NOTE run.m references `para` with no assignment. Required fields used by the updates:
+  mu, lambda, gamma (HSIC coeff = paper alpha), alpha (SVT = paper gamma),
+  beta (multiplicative denom = paper eta in this reading), eta (cross term = paper beta),
+  lambda_max, tau, thr (thr is only used at test time in run.m).
+mu if line-45 formula is applied to the code-style init BEFORE iter 1: [0.015021044203154508, 0.015021044203152732]
+mu if line-45 formula is applied to zero W BEFORE iter 1: [0.015021044203152742, 0.015021044203152742]
+Theorem1 lower bound at paper_alpha=1e-3 and code-init mu: [1.0830324909748559e-05, 1.0830324909747278e-05]
+Theorem1 lower bound at paper_alpha=1e-3 and zero-W mu: [1.0830324909747291e-05, 1.0830324909747291e-05]
+
+===== MISSING PARA (mirrors run.m) =====
+skipped numeric call: Update_C indexes para.lambda / para.mu / para.gamma
+
+===== ONE Update_C :: code_var_init + mu=0 + lambda=0 =====
+init {'C0': {'name': 'C0', 'shape': [6, 593], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 1.0, 'fro': 33.28663395418648}, 'M0': {'name': 'M0', 'shape': [6, 593], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 1.0, 'fro': 33.28663395418648}, 'WD0': {'name': 'WD0', 'shape': [6, 65], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': -2749.025214421814, 'max': 2100.3267732687286, 'fro': 6029.448928773355}, 'WC0': {'name': 'WC0', 'shape': [6, 65], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': -2749.025214421814, 'max': 2100.3267732687286, 'fro': 6029.448928773355}, 'S': {'name': 'S', 'shape': [6, 6], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 1.0, 'fro': 2.449489742783178}}
+HSIC_before_solve views (0,1) on S*W*X = 2.483548e+03
+view_report {'emin_sym': 0.0, 'emax_sym': 0.0, 'smin': 0.0, 'smax': 0.0, 'cond': inf, 'inv_ok': False, 'inv_fro': nan, 'error': 'Singular matrix', 'view': 0, 'j_last_0based': 1, 'mu_i': 0.0, 'mu_j_used': 0.0, 'lambda_i': 0.0, 'C_fro': nan}
+view_report {'emin_sym': nan, 'emax_sym': nan, 'smin': nan, 'smax': nan, 'cond': nan, 'inv_ok': True, 'inv_fro': nan, 'error': '', 'view': 1, 'j_last_0based': 1, 'mu_i': 0.0, 'mu_j_used': 0.0, 'lambda_i': 0.0, 'C_fro': nan}
+C_after not finite
+
+===== ONE Update_C :: zero_var_init + mu=0 + lambda=0 =====
+init {'C0': {'name': 'C0', 'shape': [6, 593], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 0.0, 'fro': 0.0}, 'M0': {'name': 'M0', 'shape': [6, 593], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 0.0, 'fro': 0.0}, 'WD0': {'name': 'WD0', 'shape': [6, 65], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 0.0, 'fro': 0.0}, 'WC0': {'name': 'WC0', 'shape': [6, 65], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 0.0, 'fro': 0.0}, 'S': {'name': 'S', 'shape': [6, 6], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 1.0, 'fro': 2.449489742783178}}
+HSIC_before_solve views (0,1) on S*W*X = 0.000000e+00
+view_report {'emin_sym': 0.0, 'emax_sym': 0.0, 'smin': 0.0, 'smax': 0.0, 'cond': inf, 'inv_ok': False, 'inv_fro': nan, 'error': 'Singular matrix', 'view': 0, 'j_last_0based': 1, 'mu_i': 0.0, 'mu_j_used': 0.0, 'lambda_i': 0.0, 'C_fro': nan}
+view_report {'emin_sym': nan, 'emax_sym': nan, 'smin': nan, 'smax': nan, 'cond': nan, 'inv_ok': True, 'inv_fro': nan, 'error': '', 'view': 1, 'j_last_0based': 1, 'mu_i': 0.0, 'mu_j_used': 0.0, 'lambda_i': 0.0, 'C_fro': nan}
+C_after not finite
+
+===== ONE Update_C :: code_var_init + mu=line45 + lambda=0 =====
+init {'C0': {'name': 'C0', 'shape': [6, 593], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 1.0, 'fro': 33.28663395418648}, 'M0': {'name': 'M0', 'shape': [6, 593], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 1.0, 'fro': 33.28663395418648}, 'WD0': {'name': 'WD0', 'shape': [6, 65], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': -2749.025214421814, 'max': 2100.3267732687286, 'fro': 6029.448928773355}, 'WC0': {'name': 'WC0', 'shape': [6, 65], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': -2749.025214421814, 'max': 2100.3267732687286, 'fro': 6029.448928773355}, 'S': {'name': 'S', 'shape': [6, 6], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 1.0, 'fro': 2.449489742783178}}
+HSIC_before_solve views (0,1) on S*W*X = 2.483548e+03
+view_report {'emin_sym': -9.316897007420955e-21, 'emax_sym': 2.3352714754970826e-05, 'smin': 1.3033758060815725e-25, 'smax': 2.335271475497083e-05, 'cond': 1.791710007659087e+20, 'inv_ok': True, 'inv_fro': 9.73413155049289e+24, 'error': '', 'view': 0, 'j_last_0based': 1, 'mu_i': 0.015021044203154508, 'mu_j_used': 0.015021044203152732, 'lambda_i': 0.0, 'C_fro': 1.1551610912719912e+25}
+view_report {'emin_sym': -1.3492899822094074e+28, 'emax_sym': 4.986960836944949e+43, 'smin': 6.611405918865588e+22, 'smax': 4.986960836944949e+43, 'cond': 7.542965744569852e+20, 'inv_ok': True, 'inv_fro': 1.671457150164534e-23, 'error': '', 'view': 1, 'j_last_0based': 1, 'mu_i': 0.015021044203152732, 'mu_j_used': 0.015021044203152732, 'lambda_i': 0.0, 'C_fro': 1.3692557596015925e-23}
+HSIC_after views (0,1) = 7.714912e-16
+C0_fro 1.1551610912719912e+25 C1_fro 1.3692557596015925e-23
+
+===== ONE Update_C :: code_var_init + mu=line45 + lambda=0.5*theorem =====
+init {'C0': {'name': 'C0', 'shape': [6, 593], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 1.0, 'fro': 33.28663395418648}, 'M0': {'name': 'M0', 'shape': [6, 593], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 1.0, 'fro': 33.28663395418648}, 'WD0': {'name': 'WD0', 'shape': [6, 65], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': -2749.025214421814, 'max': 2100.3267732687286, 'fro': 6029.448928773355}, 'WC0': {'name': 'WC0', 'shape': [6, 65], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': -2749.025214421814, 'max': 2100.3267732687286, 'fro': 6029.448928773355}, 'S': {'name': 'S', 'shape': [6, 6], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 1.0, 'fro': 2.449489742783178}}
+HSIC_before_solve views (0,1) on S*W*X = 2.483548e+03
+view_report {'emin_sym': -5.415162454874301e-06, 'emax_sym': 1.793755230009656e-05, 'smin': 1.3852840589757897e-06, 'smax': 1.793755230009655e-05, 'cond': 12.948645574799068, 'inv_ok': True, 'inv_fro': 4550528.167135844, 'error': '', 'view': 0, 'j_last_0based': 1, 'mu_i': 0.015021044203154508, 'mu_j_used': 0.015021044203152732, 'lambda_i': 5.415162454874279e-06, 'C_fro': 6369894.1423689965}
+view_report {'emin_sym': -5.416696704353889e-06, 'emax_sym': 4905410.589273788, 'smin': 5.413528540286e-06, 'smax': 4905410.589273789, 'cond': 906139231144.5416, 'inv_ok': True, 'inv_fro': 4474119.1097500315, 'error': '', 'view': 1, 'j_last_0based': 1, 'mu_i': 0.015021044203152732, 'mu_j_used': 0.015021044203152732, 'lambda_i': 5.415162454873639e-06, 'C_fro': 4067075.239992096}
+HSIC_after views (0,1) = -2.682793e+09
+C0_fro 6369894.1423689965 C1_fro 4067075.239992096
+
+===== ONE Update_C :: code_var_init + mu=line45 + lambda=theorem =====
+init {'C0': {'name': 'C0', 'shape': [6, 593], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 1.0, 'fro': 33.28663395418648}, 'M0': {'name': 'M0', 'shape': [6, 593], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 1.0, 'fro': 33.28663395418648}, 'WD0': {'name': 'WD0', 'shape': [6, 65], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': -2749.025214421814, 'max': 2100.3267732687286, 'fro': 6029.448928773355}, 'WC0': {'name': 'WC0', 'shape': [6, 65], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': -2749.025214421814, 'max': 2100.3267732687286, 'fro': 6029.448928773355}, 'S': {'name': 'S', 'shape': [6, 6], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 1.0, 'fro': 2.449489742783178}}
+HSIC_before_solve views (0,1) on S*W*X = 2.483548e+03
+view_report {'emin_sym': -1.0830324909748592e-05, 'emax_sym': 1.2522389845222274e-05, 'smin': 6.80044651385007e-06, 'smax': 1.2522389845222278e-05, 'cond': 1.8414070046310431, 'inv_ok': True, 'inv_fro': 2251614.621956323, 'error': '', 'view': 0, 'j_last_0based': 1, 'mu_i': 0.015021044203154508, 'mu_j_used': 0.015021044203152732, 'lambda_i': 1.0830324909748559e-05, 'C_fro': 3075204.3729793383}
+view_report {'emin_sym': -1.083078498214414e-05, 'emax_sym': 1156455.4347962635, 'smin': 1.0829922696066963e-05, 'smax': 1156455.4347962642, 'cond': 106783350837.42076, 'inv_ok': True, 'inv_fro': 2237059.73939588, 'error': '', 'view': 1, 'j_last_0based': 1, 'mu_i': 0.015021044203152732, 'mu_j_used': 0.015021044203152732, 'lambda_i': 1.0830324909747278e-05, 'C_fro': 2097781.5772037776}
+HSIC_after views (0,1) = -1.856397e+07
+C0_fro 3075204.3729793383 C1_fro 2097781.5772037776
+
+===== ONE Update_C :: code_var_init + mu=line45 + lambda=10*theorem =====
+init {'C0': {'name': 'C0', 'shape': [6, 593], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 1.0, 'fro': 33.28663395418648}, 'M0': {'name': 'M0', 'shape': [6, 593], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 1.0, 'fro': 33.28663395418648}, 'WD0': {'name': 'WD0', 'shape': [6, 65], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': -2749.025214421814, 'max': 2100.3267732687286, 'fro': 6029.448928773355}, 'WC0': {'name': 'WC0', 'shape': [6, 65], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': -2749.025214421814, 'max': 2100.3267732687286, 'fro': 6029.448928773355}, 'S': {'name': 'S', 'shape': [6, 6], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 1.0, 'fro': 2.449489742783178}}
+HSIC_before_solve views (0,1) on S*W*X = 2.483548e+03
+view_report {'emin_sym': -0.00010830324909748588, 'emax_sym': -8.495053434251474e-05, 'smin': 8.495053434251475e-05, 'smax': 0.00010830324909748593, 'cond': 1.2748977971205528, 'inv_ok': True, 'inv_fro': 224986.36919827166, 'error': '', 'view': 0, 'j_last_0based': 1, 'mu_i': 0.015021044203154508, 'mu_j_used': 0.015021044203152732, 'lambda_i': 0.00010830324909748558, 'C_fro': 311885.03076206706}
+view_report {'emin_sym': -0.00010830325281711189, 'emax_sym': 13255.546845235971, 'smin': 0.00010830324540933997, 'smax': 13255.546845235975, 'cond': 122392886.70561694, 'inv_ok': True, 'inv_fro': 223705.96524801408, 'error': '', 'view': 1, 'j_last_0based': 1, 'mu_i': 0.015021044203152732, 'mu_j_used': 0.015021044203152732, 'lambda_i': 0.00010830324909747277, 'C_fro': 175687.2123902024}
+HSIC_after views (0,1) = 3.304745e+05
+C0_fro 311885.03076206706 C1_fro 175687.2123902024
+
+===== ONE Update_C :: zero_var_init + mu=line45(zero W) + lambda=theorem =====
+init {'C0': {'name': 'C0', 'shape': [6, 593], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 0.0, 'fro': 0.0}, 'M0': {'name': 'M0', 'shape': [6, 593], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 0.0, 'fro': 0.0}, 'WD0': {'name': 'WD0', 'shape': [6, 65], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 0.0, 'fro': 0.0}, 'WC0': {'name': 'WC0', 'shape': [6, 65], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 0.0, 'fro': 0.0}, 'S': {'name': 'S', 'shape': [6, 6], 'finite_frac': 1.0, 'nan': 0, 'posinf': 0, 'neginf': 0, 'min': 0.0, 'max': 1.0, 'fro': 2.449489742783178}}
+HSIC_before_solve views (0,1) on S*W*X = 0.000000e+00
+view_report {'emin_sym': -1.0830324909747291e-05, 'emax_sym': -1.0830324909747291e-05, 'smin': 1.0830324909747291e-05, 'smax': 1.0830324909747291e-05, 'cond': 1.0, 'inv_ok': True, 'inv_fro': 2248463.5988949332, 'error': '', 'view': 0, 'j_last_0based': 1, 'mu_i': 0.015021044203152742, 'mu_j_used': 0.015021044203152742, 'lambda_i': 1.0830324909747291e-05, 'C_fro': 0.0}
+view_report {'emin_sym': -1.0830324909747291e-05, 'emax_sym': -1.0830324909747291e-05, 'smin': 1.0830324909747291e-05, 'smax': 1.0830324909747291e-05, 'cond': 1.0, 'inv_ok': True, 'inv_fro': 2248463.5988949332, 'error': '', 'view': 1, 'j_last_0based': 1, 'mu_i': 0.015021044203152742, 'mu_j_used': 0.015021044203152742, 'lambda_i': 1.0830324909747291e-05, 'C_fro': 0.0}
+HSIC_after views (0,1) = 0.000000e+00
+C0_fro 0.0 C1_fro 0.0
+
+===== SHORT LOOP :: code_var_init lambda=0 mu=line45  tau=1.0 (tau is NOT in the released code or the extracted paper text) =====
+iter 1 curr_err_last_view=5.626218e+02 rel=1.000000e+00 C_finite=True W_finite=True C_fro=[4.760308850703453e+21, 1.7327717639250355e-16] mu=[0.000653494220533812, 0.000888696529552592] lambda=[0.0, 0.0] inv_ok=[True, True] cond=[1.1253389765220519e+20, 6.568519205066478e+21]
+iter 2 curr_err_last_view=9.794070e+03 rel=9.425549e-01 C_finite=True W_finite=True C_fro=[1.9391259603401634e+22, 2.262007209701598e-15] mu=[2.7132277194970408e-05, 5.105130039174459e-05] lambda=[0.0, 0.0] inv_ok=[True, True] cond=[1.623600087249134e+20, 4.84431809288541e+21]
+iter 3 curr_err_last_view=1.702039e+05 rel=9.424568e-01 C_finite=True W_finite=True C_fro=[7.955216523988816e+21, 6.147271442843106e-12] mu=[1.1293707599703784e-06, 2.9376537714810647e-06] lambda=[0.0, 0.0] inv_ok=[True, True] cond=[1.5333741283888155e+21, 6.816154458679614e+20]
+
+===== SHORT LOOP :: zero_var_init lambda=theorem mu=line45  tau=1.0 (tau is NOT in the released code or the extracted paper text) =====
+iter 1 curr_err_last_view=nan rel=inf C_finite=True W_finite=False C_fro=[25.55144297897067, 23.60970495318175] mu=[inf, inf] lambda=[1.0830324909747291e-05, 1.0830324909747291e-05] inv_ok=[True, True] cond=[1.6614881214244794, 126.39973110384165]
+stop: non-finite or curr_err exploded
+
+===== SHORT LOOP :: code_var_init lambda=theorem mu=line45  tau=1.0 (tau is NOT in the released code or the extracted paper text) =====
+iter 1 curr_err_last_view=5.334557e+02 rel=1.000000e+00 C_finite=True W_finite=True C_fro=[2981612.791640913, 1901263.7980149656] mu=[0.0006722251700233611, 0.0009372849599668006] lambda=[1.0830324909748559e-05, 1.0830324909747278e-05] inv_ok=[True, True] cond=[2383.765044859769, 93445098127.65181]
+iter 2 curr_err_last_view=7.267635e+03 rel=9.265985e-01 C_finite=True W_finite=True C_fro=[18742.575758577346, 2047573.1600117476] mu=[3.116933916459872e-05, 6.879816839668131e-05] lambda=[1.0830324909748559e-05, 1.0830324909747278e-05] inv_ok=[True, True] cond=[1686.3597636900413, 11311.04100156534]
+iter 3 curr_err_last_view=5.238466e+04 rel=8.612641e-01 C_finite=True W_finite=True C_fro=[551779.9441281243, 1155710.8458274836] mu=[5.00173708216837e-06, 9.54477903227076e-06] lambda=[1.0830324909748559e-05, 1.0830324909747278e-05] inv_ok=[True, True] cond=[566.9597669686216, 265419.88580898463]
+iter 4 curr_err_last_view=1.602853e+05 rel=6.731786e-01 C_finite=True W_finite=True C_fro=[643821.8915683764, 469025.8786894877] mu=[2.5007943963641334e-06, 3.119438305886052e-06] lambda=[1.0830324909748559e-05, 1.0830324909747278e-05] inv_ok=[True, True] cond=[213.79817980277053, 6476.0497916864815]
+iter 5 curr_err_last_view=1.253867e+05 rel=2.783270e-01 C_finite=True W_finite=True C_fro=[557347.6028708713, 381589.84624767874] mu=[1.2033768522562242e-06, 3.987662300234572e-06] lambda=[1.0830324909748559e-05, 1.0830324909747278e-05] inv_ok=[True, True] cond=[28.892079461697996, 466.3803302068688]
+iter 6 curr_err_last_view=2.118377e+05 rel=4.081001e-01 C_finite=True W_finite=True C_fro=[652638.0244153347, 97418.84851550184] mu=[8.438218512852185e-07, 2.3602970317422618e-06] lambda=[1.0830324909748559e-05, 1.0830324909747278e-05] inv_ok=[True, True] cond=[112.26776265049055, 2229.5335728669793]
+iter 7 curr_err_last_view=9.383723e+04 rel=1.257502e+00 C_finite=True W_finite=True C_fro=[573682.9831611973, 88953.52288787739] mu=[7.683881865716719e-07, 5.328375647812649e-06] lambda=[1.0830324909748559e-05, 1.0830324909747278e-05] inv_ok=[True, True] cond=[4.480605281437165, 712.1226603407268]
+iter 8 curr_err_last_view=8.205294e+04 rel=1.436181e-01 C_finite=True W_finite=True C_fro=[466950.9256315274, 105953.27708203846] mu=[7.493815223837378e-07, 6.0936266044516294e-06] lambda=[1.0830324909748559e-05, 1.0830324909747278e-05] inv_ok=[True, True] cond=[1.6381573884005383, 2254.5696865020154]

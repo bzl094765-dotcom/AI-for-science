@@ -1,0 +1,18 @@
+structural probes
+octave/matlab: not on PATH (checked earlier)
+CISF-normalized view0 X (65, 593) smax 3.442103e+01 smin 3.332062e-04 cond 1.033025e+05
+CISF-normalized view1 X (9, 593) smax 3.440891e+01 smin 1.134174e-02 cond 3.033829e+03
+fold0 train [(474, 64), (474, 8)] (474, 6)
+view0 kept 655/2844 frac 0.230309 cosine<99 1.000000 maxcos 0.986532
+view1 kept 334/2844 frac 0.117440 cosine<99 1.000000 maxcos 0.999890
+rank_fun_derivative1(0, 10**jj)
+  delta=1.0e-05 w0=1.000010e+05
+  delta=1.0e-04 w0=1.000100e+04
+  delta=1.0e-03 w0=1.001001e+03
+  delta=1.0e-02 w0=1.010050e+02
+  delta=1.0e-01 w0=1.105171e+01
+  delta=1.0e+00 w0=2.718282e+00
+torch.topk probe (same as model.construct_label_hyperedge_index)
+view0 kept 655/2844 cosine<99 2844/2844 max_cos 0.986532
+view1 kept 334/2844 cosine<99 2844/2844 max_cos 0.999890
+label tuples 25 valid_groups_size>=2 23 singletons 2
