@@ -1,0 +1,8 @@
+/home/ubuntu/.local/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/tmp/author_code/HyperAHSF/train.py", line 11, in <module>
+    from model import HGMVMLC_Model
+  File "/tmp/author_code/HyperAHSF/model.py", line 5, in <module>
+    from torch_scatter import scatter_add, scatter_mean
+ModuleNotFoundError: No module named 'torch_scatter'
