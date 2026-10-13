@@ -1,5 +1,6 @@
 #!/bin/bash
-# R0 vs Rγ on corel5k. Hyperparameters stay at main-final.py defaults.
+# R0 only on corel5k. Rγ is run locally by the user and is not started here.
+# Hyperparameters stay at main-final.py defaults.
 set -u
 BASE="/workspace/创新点/_diag/P7_幂次预处理"
 WORKDIR="$BASE/workdir_rank"
@@ -109,11 +110,7 @@ PY
 )
 fi
 echo "- completed_folds_R0: ${r0_rows}" >> "$LOG"
-if [[ "$rc_all" -eq 0 ]]; then
-  run_arm Rgamma rgamma || rc_all=$?
-else
-  echo "- Rgamma: skipped_after_R0_failure" >> "$LOG"
-fi
+echo "- Rgamma: run locally, pending" >> "$LOG"
 python3 "$BASE/summarize_p7.py" >> "$LOG" 2>&1 || true
 echo "- run_p7_exit: ${rc_all}" >> "$LOG"
 exit "$rc_all"
