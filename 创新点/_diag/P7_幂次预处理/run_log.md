@@ -1,0 +1,126 @@
+# P7 run log
+
+- started_utc: 2026-10-13T02:57:56.780922Z
+- python: 3.12.3
+- torch: 2.14.1+cpu
+- cuda_available: False
+- gpu: none
+- nvidia-smi: absent
+- RANK tree: copy of https://github.com/justsmart/RANK commit 5635dceb8bb66d19b017a438489a4d5b29eb9a2f
+- data mats used (official repo blobs, not the README Google Drive link):
+  - /workspace/创新点/_diag/P7_幂次预处理/workdir_rank/data/corel5k/corel5k_six_view.mat
+  - /workspace/创新点/_diag/P7_幂次预处理/workdir_rank/data/corel5k/corel5k_six_view_MaskRatios_0.5_LabelMaskRatio_0.5_TraindataRatio_0.7.mat
+- hyperparameters: main-final.py corel5k lists and argparse defaults, not overridden
+  - lr_list = [1e-1]
+  - alpha_list = [1e0]
+  - beta_list = [0.97]
+  - gamma_list = [1e-1]
+  - sigma_list = [0]
+  - epochs = 250
+  - folds_num = 10
+  - batch_size = 128
+  - n_z = 512
+  - n_stacks = 4
+  - SGD momentum = 0.9
+  - mask_view_ratio = 0.5
+  - mask_label_ratio = 0.5
+  - training_sample_ratio = 0.7
+  - datasets = ['corel5k']
+- seed: argparse default exists (1) but main never calls a seed setter; this run does not set one
+- device: cuda:0 if torch.cuda.is_available() else cpu
+- RANK_MAX_WALL_SEC: 43200
+- records_R0: /workspace/创新点/_diag/P7_幂次预处理/records_R0
+- records_Rgamma: /workspace/创新点/_diag/P7_幂次预处理/records_Rgamma
+- metrics_R0: /workspace/创新点/_diag/P7_幂次预处理/metrics_R0.csv
+- metrics_Rgamma: /workspace/创新点/_diag/P7_幂次预处理/metrics_Rgamma.csv
+
+## preflight
+features ['DenseHue.hvecs', 'DenseSift.hvecs', 'Gist.fvec', 'Hsv.hvecs32', 'Rgb.hvecs32', 'Lab.hvecs32']
+dims [100, 1000, 512, 4096, 4096, 4096] n 4999 labels (4999, 260)
+RANK_PREPROCESS r0 view_dims (100, 1000, 512, 4096, 4096, 4096)
+R0 array_equal official line: ok
+RANK_PREPROCESS rgamma view_dims (100, 1000, 512, 4096, 4096, 4096)
+Gist Rγ array_equal official StandardScaler: ok
+Rγ L1->**0.25->L2 then mask: ok
+loadMfDIMvMlDataFromMat R0: ok
+## arm R0 RANK_PREPROCESS=r0
+- start_utc: 2026-10-13T02:58:11Z
+
+## plan change
+- Rgamma is not started in this environment: run locally, pending
+- run_p7.sh no longer launches the Rgamma arm
+- the in-flight R0 process is left running with the same hyperparameters
+- in-process wall-clock budget was raised from 43200 to 1e12 so the already-started R0 process finishes all 10 folds
+
+## plan reversal
+- Rgamma will run on this VM after R0, same launcher path as the original run_p7.sh
+- the guard that would have killed the launcher was stopped
+- in-process wall budget restored to 43200
+- exit_code: 0
+- end_utc: 2026-10-13T13:41:48Z
+- stdout: /workspace/创新点/_diag/P7_幂次预处理/logs/R0.stdout
+- completed_folds_R0: 8
+## arm Rgamma RANK_PREPROCESS=rgamma
+- start_utc: 2026-10-13T13:41:48Z
+- exit_code: 0
+- end_utc: 2026-10-14T00:48:08Z
+- stdout: /workspace/创新点/_diag/P7_幂次预处理/logs/Rgamma.stdout
+# P7 summary
+
+dataset: corel5k
+mask_view_ratio: 0.5
+mask_label_ratio: 0.5
+training_sample_ratio: 0.7
+epochs: 250
+folds_requested: 10
+n_completed_R0: 8
+n_completed_Rgamma: 8
+paired_fold_idx: [0, 1, 2, 3, 4, 5, 6, 7]
+delta: Rgamma_mean - R0_mean
+AUC: AUCme
+sd: ddof=0
+
+## R0
+
+| fold_idx | AP | HL | RL | AUC | one_error | coverage | macAUC | macro_f1 | micro_f1 | best_epoch |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 0 | 0.435273 | 0.987753 | 0.917649 | 0.920231 | 0.516689 | 0.810265 | 0.793292 | 0.055370 | 0.174455 | 222 |
+| 1 | 0.442400 | 0.987732 | 0.913540 | 0.916633 | 0.528705 | 0.801618 | 0.763311 | 0.052427 | 0.163222 | 169 |
+| 2 | 0.425240 | 0.987707 | 0.915092 | 0.919391 | 0.512684 | 0.803923 | 0.751053 | 0.058315 | 0.173343 | 233 |
+| 3 | 0.442873 | 0.987999 | 0.913625 | 0.915766 | 0.524700 | 0.800298 | 0.751366 | 0.061051 | 0.190509 | 210 |
+| 4 | 0.435454 | 0.987696 | 0.910649 | 0.913771 | 0.500668 | 0.797432 | 0.770488 | 0.063060 | 0.203457 | 249 |
+| 5 | 0.414727 | 0.987645 | 0.910133 | 0.911689 | 0.468625 | 0.786839 | 0.762489 | 0.045668 | 0.166898 | 195 |
+| 6 | 0.426023 | 0.987604 | 0.910468 | 0.914599 | 0.483311 | 0.793756 | 0.756949 | 0.054747 | 0.183908 | 226 |
+| 7 | 0.418189 | 0.987614 | 0.909997 | 0.912721 | 0.507343 | 0.794310 | 0.780705 | 0.050430 | 0.164820 | 227 |
+| mean±sd | 0.430022±0.009927 | 0.987719±0.000117 | 0.912644±0.002618 | 0.915600±0.002847 | 0.505340±0.019244 | 0.798555±0.006689 | 0.766207±0.013784 | 0.055133±0.005329 | 0.177576±0.013170 | 216.375±23.238 |
+
+## Rgamma
+
+| fold_idx | AP | HL | RL | AUC | one_error | coverage | macAUC | macro_f1 | micro_f1 | best_epoch |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 0 | 0.375993 | 0.987301 | 0.899975 | 0.902994 | 0.456609 | 0.769934 | 0.727014 | 0.020941 | 0.092477 | 241 |
+| 1 | 0.354583 | 0.987219 | 0.892726 | 0.895923 | 0.417891 | 0.755012 | 0.712172 | 0.021012 | 0.068837 | 242 |
+| 2 | 0.371917 | 0.987178 | 0.903069 | 0.906579 | 0.407210 | 0.774879 | 0.732487 | 0.020682 | 0.076212 | 249 |
+| 3 | 0.366835 | 0.987275 | 0.895071 | 0.898221 | 0.435247 | 0.758689 | 0.725534 | 0.015174 | 0.071214 | 248 |
+| 4 | 0.374276 | 0.987065 | 0.899217 | 0.902291 | 0.444593 | 0.771326 | 0.756311 | 0.015928 | 0.076951 | 241 |
+| 5 | 0.359779 | 0.987250 | 0.897510 | 0.899319 | 0.401869 | 0.758468 | 0.732785 | 0.017613 | 0.084102 | 249 |
+| 6 | 0.364115 | 0.986854 | 0.897910 | 0.902060 | 0.424566 | 0.760024 | 0.715078 | 0.018760 | 0.077145 | 249 |
+| 7 | 0.361600 | 0.987024 | 0.898102 | 0.899637 | 0.425901 | 0.767778 | 0.750167 | 0.016060 | 0.074698 | 248 |
+| mean±sd | 0.366137±0.007035 | 0.987146±0.000143 | 0.897947±0.002909 | 0.900878±0.003081 | 0.426736±0.017201 | 0.764514±0.006845 | 0.731444±0.014429 | 0.018271±0.002266 | 0.077704±0.007001 | 245.875±3.551 |
+
+## paired
+
+| metric | n | R0_mean | R0_sd | Rgamma_mean | Rgamma_sd | delta_Rgamma_minus_R0 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| AP | 8 | 0.430022 | 0.009927 | 0.366137 | 0.007035 | -0.063885 |
+| HL | 8 | 0.987719 | 0.000117 | 0.987146 | 0.000143 | -0.000573 |
+| RL | 8 | 0.912644 | 0.002618 | 0.897947 | 0.002909 | -0.014697 |
+| AUC | 8 | 0.915600 | 0.002847 | 0.900878 | 0.003081 | -0.014722 |
+| one_error | 8 | 0.505340 | 0.019244 | 0.426736 | 0.017201 | -0.078605 |
+| coverage | 8 | 0.798555 | 0.006689 | 0.764514 | 0.006845 | -0.034042 |
+| macAUC | 8 | 0.766207 | 0.013784 | 0.731444 | 0.014429 | -0.034763 |
+| macro_f1 | 8 | 0.055133 | 0.005329 | 0.018271 | 0.002266 | -0.036862 |
+| micro_f1 | 8 | 0.177576 | 0.013170 | 0.077704 | 0.007001 | -0.099872 |
+| best_epoch | 8 | 216.375 | 23.238 | 245.875 | 3.551 | 29.500 |
+
+- run_p7_exit: 0

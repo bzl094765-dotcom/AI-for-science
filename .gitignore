@@ -3,6 +3,8 @@
 **/dataset/
 **/*.csv
 !**/result/feature_importance_noleak.csv
+!创新点/_diag/P7_幂次预处理/metrics_R0.csv
+!创新点/_diag/P7_幂次预处理/metrics_Rgamma.csv
 **/__pycache__/
 **/.ipynb_checkpoints/
 .DS_Store
